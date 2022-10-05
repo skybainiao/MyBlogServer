@@ -21,7 +21,9 @@ public class UserController {
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     User addUser() {
         User newUser = new User("Sofia","Software engineer");
+        User newUser1 = new User("Alex","Software engineer");
         repository.save(newUser);
+        repository.save(newUser1);
         return newUser;
     }
 
