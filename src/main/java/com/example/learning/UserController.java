@@ -1,6 +1,6 @@
 package com.example.learning;
 
-import com.google.gson.Gson;
+import com.google.gson.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
