@@ -9,7 +9,7 @@ import java.util.List;
 public class UserController {
 
     private UserRepository repository;
-    private Gson gson;
+    private Gson gson = new Gson();
 
     UserController(UserRepository repository) {
         this.repository = repository;
