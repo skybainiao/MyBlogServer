@@ -9,9 +9,9 @@ import java.util.List;
 public class UserController {
 
     private UserRepository repository;
-    private final Gson gson;
+    private Gson gson;
 
-    UserController(UserRepository repository) {
+    public UserController(UserRepository repository) {
         this.repository = repository;
         gson = new Gson();
     }
