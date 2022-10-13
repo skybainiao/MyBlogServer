@@ -1,5 +1,6 @@
 package com.example.learning;
 
+import com.google.gson.Gson;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -8,9 +9,11 @@ import java.util.List;
 public class UserController {
 
     private UserRepository repository;
+    private Gson gson;
 
     UserController(UserRepository repository) {
         this.repository = repository;
+        gson = new Gson();
     }
 
     @GetMapping("/users")
@@ -18,14 +21,13 @@ public class UserController {
         return repository.findAll();
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
-    User addUser() {
-        User newUser = new User("Sofia","Software engineer");
-        User newUser1 = new User("Alex","Software engineer");
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public void  addUser(@RequestBody String user) {
+        User newUser = gson.fromJson(user,User.class);
         repository.save(newUser);
-        repository.save(newUser1);
-        return newUser;
     }
+
+
 
     @GetMapping("/hello")
     public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {

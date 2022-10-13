@@ -23,16 +23,16 @@ public class User implements Serializable {
     @Column(updatable = false)
     private Long id;
     @Column(nullable = false)
-    private String name;
+    private String username;
     @Column(nullable = false)
-    private String role;
+    private String password;
 
     User() {
     }
 
-    public User(String name, String role) {
-        this.name = name;
-        this.role = role;
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 
     public Long getId() {
@@ -43,20 +43,19 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getRole() {
-        return role;
+    public String getPassword() {
+        return password;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setPassword(String password) {
+        this.password = password;
     }
-
 }
