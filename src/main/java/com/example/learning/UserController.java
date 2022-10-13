@@ -1,6 +1,6 @@
 package com.example.learning;
 
-import com.google.gson.*;
+import com.google.gson.Gson;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
 public class UserController {
 
     private UserRepository repository;
-    private Gson gson = new Gson();
+    private final Gson gson;
 
     UserController(UserRepository repository) {
         this.repository = repository;
