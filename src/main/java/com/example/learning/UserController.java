@@ -1,6 +1,7 @@
 package com.example.learning;
 
-import com.google.gson.Gson;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,11 +10,9 @@ import java.util.List;
 public class UserController {
 
     private UserRepository repository;
-    private Gson gson;
 
     public UserController(UserRepository repository) {
         this.repository = repository;
-        gson = new Gson();
     }
 
     @GetMapping("/users")
@@ -23,7 +22,10 @@ public class UserController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public void  addUser(@RequestBody String user) {
-        User newUser = gson.fromJson(user,User.class);
+        JSONObject object = JSON.parseObject(user);
+        String username = object.getString("username");
+        String password = object.getString("password");
+        User newUser = new User(username,password);
         repository.save(newUser);
     }
 
