@@ -25,7 +25,7 @@ public class ChatController {
     }
 
     @RequestMapping(value = "/send", method = RequestMethod.POST)
-    public void  addUser(@RequestBody String message) {
+    public void  sendMessage(@RequestBody String message) {
         Message newMessage = gson.fromJson(message,Message.class);
         repository.save(newMessage);
     }
