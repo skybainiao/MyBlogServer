@@ -1,4 +1,4 @@
-package com.example.learning;
+package com.example.learning.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.GenericGenerator;

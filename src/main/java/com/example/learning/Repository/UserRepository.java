@@ -1,7 +1,7 @@
-package com.example.learning;
+package com.example.learning.Repository;
 
+import com.example.learning.Model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-
 public interface UserRepository extends JpaRepository<User,Long> {}
+

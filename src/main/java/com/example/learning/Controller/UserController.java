@@ -1,5 +1,7 @@
-package com.example.learning;
+package com.example.learning.Controller;
 
+import com.example.learning.Model.User;
+import com.example.learning.Repository.UserRepository;
 import com.google.gson.Gson;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +28,6 @@ public class UserController {
         User newUser = gson.fromJson(user,User.class);
         repository.save(newUser);
     }
-
 
 
     @GetMapping("/hello")
